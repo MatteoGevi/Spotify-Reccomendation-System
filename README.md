@@ -3,9 +3,9 @@ Machine Learning Model to suggest to my colleagues new songs according to their 
 
 ## Prologue 
 
-'''bash
-pip install jupytext
-'''
+```bash
+pip install spotipy
+```
 
 ### Spotify API Connection
 
