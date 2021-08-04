@@ -1,14 +1,13 @@
 # Spotify-Reccomendation-System
-Machine Learning Model to suggest to my colleagues new songs accordign to their music taste
+Machine Learning Model to suggest to my colleagues new songs according to their music taste and any playlist as benchmark
 
-## Intro
+## Prologue 
 
-This Repo is meant to create a Reccomendation System that can suggest new music to your friends and colleagues according to the playlist they are listening.
 '''bash
 pip install jupytext
 '''
 
-### Spotify Connection
+### Spotify API Connection
 
 ### Data Source
 
@@ -18,3 +17,5 @@ pip install jupytext
 
 ## Reccomendation Algorythm
 - `$HOME/.local/bin` for Unix
+
+### Feature Engineering
