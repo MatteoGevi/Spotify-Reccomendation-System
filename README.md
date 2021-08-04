@@ -22,6 +22,8 @@ pip install spotipy
 
 ### Feature Engineering
 
-If you have suggestions, bugs or other issues specific to this library,
-file them [here](https://github.com/DataStrander/Spotify-Reccomendation-System/issues).
-Or just send a pull request.
+```python
+bpm = 140
+```
+
+If you have suggestions, bugs or other issues specific to this library, file them [here](https://github.com/DataStrander/Spotify-Reccomendation-System/issues) or just send a pull request.
