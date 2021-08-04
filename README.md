@@ -17,4 +17,4 @@ pip install jupytext
 ### BPM
 
 ## Reccomendation Algorythm
-- '$HOME/.local/bin' for Unix
+- `$HOME/.local/bin` for Unix
