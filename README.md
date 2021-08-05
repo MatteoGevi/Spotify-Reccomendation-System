@@ -5,13 +5,24 @@ Machine Learning Model to suggest to my colleagues new songs according to their 
 
 ## Prologue 
 
+We will work with Jupytext to convert the script into a Jupyter readable file and with the Spotipy library to get access to the Spotify API through Python Library
+.\through Anaconda Prompt
 ```bash
+conda install -c conda-forge jupytext
+conda install -c conda-forge spotipy
+```
+
+.\ through the Terminal
+```bash
+pip install jupytext
 pip install spotipy
 ```
 
-### Spotify API Connection
+### Spotify API Authentification
 
-### Data Source
+Spotify offers the chance to develope Apps to be used according to the code you deliver on their [Developers Platform](https://developer.spotify.com/dashboard/). You just need to sign in with your normal account and then you can visualize all the credentials you need to connect your or someone's playlist and explore that Dataframe.
+
+### Data Source Creation
 
 ## Exploratory Data Analysis
 
