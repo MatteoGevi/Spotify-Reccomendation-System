@@ -22,7 +22,7 @@ pip install spotipy
 
 Spotify offers the chance to develope Apps to be used according to the code you deliver on their [Developers Platform](https://developer.spotify.com/dashboard/). You just need to sign in with your normal account and then you can visualize all the credentials you need to connect your or someone's playlist and explore that Dataframe.
 
-#### Data Source Creation
+### Data Source Creation
 
 Once the connection has been established, you can see how your dataframe is structured and of course you need to make some data cleansing in order to index and add more dimensions for the analysis we want to develope for our Algorythm
 
