@@ -22,10 +22,35 @@ from sklearn import decomposition
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import StratifiedKFold, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.tree import DecisionTreeClassifier
 import matplotlib.pyplot as plt
 import plotly
 import plotly.graph_objects as go
 import plotly.express as px
+
+# +
+'''Playlist Processing for Model Benchmark'''
+
+# Check the Spotify documentation to have some tips regarding how to build your own model
+# https://beta.developer.spotify.com/documentation/web-api/reference/browse/get-recommendations/
+rec_tracks = []
+for i in playlist_df['id'].values.tolist():
+    rec_tracks += sp.recommendations(seed_tracks=[i], limit=int(len(playlist_df)/2))['tracks'];
+
+rec_track_ids = []
+rec_track_names = []
+for i in rec_tracks:
+    rec_track_ids.append(i['id'])
+    rec_track_names.append(i['name'])
+
+rec_features = []
+for i in range(0,len(rec_track_ids)):
+    rec_audio_features = sp.audio_features(rec_track_ids[i])
+    for track in rec_audio_features:
+        rec_features.append(track)
+        
+rec_playlist_df = pd.DataFrame(rec_features, index = rec_track_ids)
+# Rate each song in your playlist in order to create a multi-class classification task.
 
 # +
 '''Principal Component Analysis for Playlist Building'''
@@ -54,7 +79,30 @@ knn = KNeighborsClassifier(n_jobs=-1)
 knn_grid = GridSearchCV(knn, knn_params, cv=skf, n_jobs=-1, verbose=True)
 knn_grid.fit(X_train_last, y_train)
 knn_grid.best_params_, knn_grid.best_score_
+
+# +
+'''Random Forest and Decision Tree'''
+
+parameters = {'max_features': [4, 7, 8, 10], 'min_samples_leaf': [1, 3, 5, 8], 'max_depth': [3, 5, 8]}
+rfc = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1, oob_score=True)
+forest_grid = GridSearchCV(rfc, parameters, n_jobs=-1, cv=skf, verbose=1)
+forest_grid.fit(X_train_last, y_train)
+forest_grid.best_estimator_, forest_grid.best_score_
+
+# Decision Tree Classification
+tree = DecisionTreeClassifier()
+tree_params = {'max_depth': range(1,11), 'max_features': range(4,19)}
+tree_grid = GridSearchCV(tree, tree_params, cv=skf, n_jobs=-1, verbose=True)
+tree_grid.fit(X_train_last, y_train)
+tree_grid.best_estimator_, tree_grid.best_score_
+
+# +
+'''XGBoost and Popularity Reccomender'''
+
+
 # -
 
-'''Random Forest and Decision Tree'''
+'''Content-based vs Collaborative: the Hybrid Reccomender'''
+
+
 

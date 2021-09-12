@@ -50,7 +50,7 @@ for i in range(0,len(rec_track_ids)):
         rec_features.append(track)
         
 rec_playlist_df = pd.DataFrame(rec_features, index = rec_track_ids)
-
+# Rate each song in your playlist in order to create a multi-class classification task.
 
 # +
 '''Principal Component Analysis for Playlist Building'''
