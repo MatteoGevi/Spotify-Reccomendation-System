@@ -95,14 +95,11 @@ tree_params = {'max_depth': range(1,11), 'max_features': range(4,19)}
 tree_grid = GridSearchCV(tree, tree_params, cv=skf, n_jobs=-1, verbose=True)
 tree_grid.fit(X_train_last, y_train)
 tree_grid.best_estimator_, tree_grid.best_score_
+# -
 
-# +
 '''XGBoost and Popularity Reccomender'''
 
 
-# -
-
-'''Content-based vs Collaborative: the Hybrid Reccomender'''
 
 
 
